@@ -48,7 +48,7 @@ var Iso = (function(){
       var isoHtml = '<div class="iso-tab-container">'
                     +'<div class="iso-stats-top"><table>'
                     +'<tr><td class="iso-td">活跃度<span class="iso-stats-cnt">'+totalContributions+'</span></td><td class="iso-meta-td"><span class="iso-stats-unit">过去一年</span><span class="iso-stats-date">'+totalContributionDateRange+'</span></td></tr>'
-                    +'<tr><td class="iso-td">最长活跃度<span class="iso-stats-cnt">'+largestContribution+'</span></td><td class="iso-meta-td"><span class="iso-stats-unit">天</span><span class="iso-stats-date">'+largestContributionTime+'</span></td></tr>'
+                    +'<tr><td class="iso-td">最大活跃度<span class="iso-stats-cnt">'+largestContribution+'</span></td><td class="iso-meta-td"><span class="iso-stats-unit">发生时间</span><span class="iso-stats-date">'+largestContributionTime+'</span></td></tr>'
                     +'</table></div>'
                     +'<div class="iso-stats-bottom"><table>'
                     +'<tr><td class="iso-td">最长连续活跃<span class="iso-stats-cnt">'+longestContributions+'</span></td><td class="iso-meta-td"><span class="iso-stats-unit">天</span><span class="iso-stats-date">'+longestContributionDateRange+'</span></td></tr>'
