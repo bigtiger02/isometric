@@ -30,7 +30,6 @@ var Iso = (function(){
       $('.daily-activeness-graph').find("rect").each(function(){
           var contribCount = parseInt($(this).attr('data-count'));
           var contribDate = $(this).attr('data-date');
-          console.log(contribCount);
           if(largestContribution){
             if(contribCount > largestContribution){
               largestContribution = contribCount;
