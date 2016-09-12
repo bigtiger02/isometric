@@ -13,23 +13,24 @@ var Iso = (function(){
     Iso.prototype._fetchData = function(){
       //总贡献度
       $(".statistic-table tr:nth-child(2)").find("td:nth-child(1)").each(function(){
-        totalContributions = parseInt($(this).find(".count").html());
+        totalContributions = $(this).find(".count").html().replace("度","");
         totalContributionDateRange = $(this).find(".duration").html();
       });
       //最长活跃度
       $(".statistic-table tr:nth-child(2)").find("td:nth-child(2)").each(function(){
-        longestContributions = parseInt($(this).find(".count").html());
+        longestContributions = $(this).find(".count").html().replace("天","");
         longestContributionDateRange = $(this).find(".duration").html();
       });
       //当前活跃度
       $(".statistic-table tr:nth-child(2)").find("td:nth-child(3)").each(function(){
-        currentContributions = parseInt($(this).find(".count").html());
+        currentContributions = $(this).find(".count").html().replace("天","");
         lastActiveTime = $(this).find(".duration").html();
       });
       //最大天提交量
       $('.daily-activeness-graph').find("rect").each(function(){
           var contribCount = parseInt($(this).attr('data-count'));
           var contribDate = $(this).attr('data-date');
+          console.log(contribCount);
           if(largestContribution){
             if(contribCount > largestContribution){
               largestContribution = contribCount;
@@ -67,6 +68,7 @@ var Iso = (function(){
                     +'</span>'
                     +'</div>';
       $("#iso-coding-contributions").prepend(tabHtml);
+      $("#iso-coding-contributions").attr("data-time",new Date().getTime());
       $(".iso-toggle").find(".squares").click(function(){
         $(".iso-toggle").find(".cubes").removeClass("active");
         $(this).addClass("active");
@@ -102,7 +104,7 @@ var Iso = (function(){
           fill = $(this).attr('fill');
           contribCount = parseInt(($(this)).attr('data-count'));
 
-          cubeHeight = 10;
+          cubeHeight = 3;
           cubeHeight += parseInt(MAX_HEIGHT / largestContribution * contribCount);
 
           dimension = new obelisk.CubeDimension(SIZE, SIZE, cubeHeight);
@@ -144,8 +146,9 @@ $(function() {
   //由于coding的图表为异步加载，处理异步加载偶尔延迟的情况
   var time = setInterval(function(){
     if($('.daily-activeness-graph').length > 0){
-      clearInterval(time);
-      new Iso();
+      if(!$("#iso-coding-contributions").attr("data-time")){
+        new Iso();
+      }
     }
   },1000);
 });
