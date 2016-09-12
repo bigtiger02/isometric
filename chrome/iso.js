@@ -86,7 +86,7 @@ var Iso = (function(){
       SIZE = 10;
       GH_OFFSET = 13;
       MAX_HEIGHT = 80;
-      var maxCount = 20;
+      var maxCount = 30;
       canvas = document.getElementById('isometric-canvas');
       point = new obelisk.Point(97, 120);
       pixelView = new obelisk.PixelView(canvas, point);
@@ -102,10 +102,9 @@ var Iso = (function(){
           fill = $(this).attr('fill');
           contribCount = parseInt(($(this)).attr('data-count'));
 
-          cubeHeight = 3;
-          if (maxCount > 0) {
-            cubeHeight += parseInt(MAX_HEIGHT / maxCount * contribCount);
-          }
+          cubeHeight = 10;
+          cubeHeight += parseInt(MAX_HEIGHT / largestContribution * contribCount);
+
           dimension = new obelisk.CubeDimension(SIZE, SIZE, cubeHeight);
           color = self.getSquareColor(fill);
           cube = new obelisk.Cube(dimension, color, false);
