@@ -1,6 +1,6 @@
 # isometric for coding with ❤️
 - - - - -
-这是 isometric for github 的 coding 实现版，地址：[https://github.com/jasonlong/isometric-contributions.git](https://github.com/jasonlong/isometric-contributions.git)  
+这是 isometric for github 的 coding 实现版，地址：[https://github.com/bigtiger02/isometric.git](https://github.com/bigtiger02/isometric.git)  
 ![demo](http://7xrkla.com1.z0.glb.clouddn.com/isometric/iso-demo.png)
 目前只实现了谷歌插件。
 由于谷歌插件在2016年11月之后将不在支持系统用户的使用，故不再上传谷歌插件市场，请童鞋门自行下载安装体验。
