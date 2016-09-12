@@ -87,13 +87,13 @@ var Iso = (function(){
       SIZE = 10;
       GH_OFFSET = 13;
       MAX_HEIGHT = 80;
-      var maxCount = 30;
+
       canvas = document.getElementById('isometric-canvas');
       point = new obelisk.Point(97, 120);
       pixelView = new obelisk.PixelView(canvas, point);
       contribCount = null;
       self = this;
-      $('.daily-activeness-graph').find("g").each(function(g) {
+      $('.daily-activeness-graph').find("g>g").each(function(g) {
         var x;
         x = parseInt(((($(this)).attr('transform')).match(/(\d+)/))[0] / GH_OFFSET);
         $(this).find('rect').each(function(r) {
