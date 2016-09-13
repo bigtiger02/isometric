@@ -5,6 +5,8 @@ var Iso = (function(){
     currentContributions,lastActiveTime;
 
     function Iso(){
+      largestContribution = 0;
+      largestContributionTime = "";
       this._fetchData();
       this._initUI();
       this.renderIsometricChart();
@@ -104,7 +106,11 @@ var Iso = (function(){
           contribCount = parseInt(($(this)).attr('data-count'));
 
           cubeHeight = 3;
-          cubeHeight += parseInt(MAX_HEIGHT / largestContribution * contribCount);
+          if(largestContribution > 30){
+            cubeHeight += parseInt(MAX_HEIGHT / largestContribution * contribCount);
+          }else{
+            cubeHeight += parseInt(3 * contribCount);
+          }
 
           dimension = new obelisk.CubeDimension(SIZE, SIZE, cubeHeight);
           color = self.getSquareColor(fill);
